@@ -14,6 +14,7 @@
  *
  */
 (function($){
+
   $.extend({
     jGFeed : function(url, fnk, num, key){
       // Make sure url to get is defined
@@ -26,6 +27,7 @@
       $.getJSON(gurl, function(data){
         if(typeof fnk == 'function')
 		  fnk.call(this, data.responseData.feed);
+           
 		else
 		  return false;
       });

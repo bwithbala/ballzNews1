@@ -1,121 +1,4 @@
 
-		var oList2 = new sap.m.List({
-			inset : true
-		});
-		
-		var data = {
-			navigation : [ {
-				title : "Travel Expend",
-				description : "Access the travel expend workflow",
-				icon : "images/travel_expend.png",
-				iconInset : false,
-				type : "Navigation",
-				press : 'detailPage'
-			}, {
-				title : "Travel and expense report",
-				description : "Access travel and expense reports",
-				icon : "images/travel_expense_report.png",
-				iconInset : false,
-				type : "Navigation",
-				press : 'detailPage'
-			}, {
-				title : "Travel Request",
-				description : "Access the travel request workflow",
-				icon : "images/travel_request.png",
-				iconInset : false,
-				type : "Navigation",
-				press : 'detailPage'
-			}, {
-				title : "Work Accidents",
-				description : "Report your work accidents",
-				icon : "images/wounds_doc.png",
-				iconInset : false,
-				type : "Navigation",
-				press : 'detailPage'
-			}, {
-				title : "Travel Settings",
-				description : "Change your travel worflow settings",
-				icon : "images/settings.png",
-				iconInset : false,
-				type : "Navigation",
-				press : 'detailPage'
-			} ]
-		};
-		
-		var oItemTemplate1 = new sap.m.StandardListItem({
-			title : "{title}",
-			description : "{description}",
-			icon : "{icon}",
-			iconInset : "{iconInset}",
-			type : "{type}"
-		});
-		
-		function bindListData(data, itemTemplate, list)
-		{
-			var oModel = new sap.ui.model.json.JSONModel();
-			// set the data for the model
-			oModel.setData(data);
-			// set the model to the list
-			list.setModel(oModel);
-
-			// bind Aggregation
-			list.bindAggregation("items", "/navigation", itemTemplate);
-		}
-		
-		bindListData(data, oItemTemplate1, oList2);
-		
-		var oLeftButton = new sap.m.Button({
-			text: "Modal",
-			type: sap.m.ButtonType.Reject,
-			press: function(){
-				oPopover.setModal(!oPopover.getModal());
-			}
-		});
-		
-		var oRightButton = new sap.m.Button({
-			text: "Close",
-			type: sap.m.ButtonType.Accept,
-			press: function(){
-				oPopover.close();
-			}
-		});
-		
-		var footer = new sap.m.Bar({ 
-			contentLeft: [],	
-			contentMiddle: [new sap.m.Button({icon: "images/favorite@2x.png"}),
-			                new sap.m.Button({icon: "images/feed@2x.png"}),
-			                new sap.m.Button({icon: "images/flag@2x.png"})],
-			contentRight: []
-		});
-		
-		
-		var oPopover = new sap.m.Popover({
-			placement: sap.m.PlacementType.Auto,
-			title: "Popover",
-			showHeader: true,
-			leftButton: oLeftButton,
-			rightButton: oRightButton,
-			beforeOpen: function(oEvent){
-				jQuery.sap.log.info("before popover opens!!!");
-			},
-			afterOpen: function(oEvent){
-				jQuery.sap.log.info("popover is opened finally!!!");
-			},
-			beforeClose: function(oEvent){
-				jQuery.sap.log.info("before popover closes!!!");
-			},
-			afterClose: function(oEvent){
-				jQuery.sap.log.info("popover is closed properly!!!");
-			},
-			footer: footer,
-			content: [
-				oList2
-			]
-		});
-		
-		
-		
-		
 		var oFeedList = new sap.m.List("oFeedItemList", {
 		    mode: "SingleSelectMaster",
 		    //showSeparators: "None",
@@ -129,17 +12,17 @@
 		
 		var oFeedListItemTemplate = new sap.m.FeedListItem({
 			type: sap.m.ListType.Active,
-			icon : "{icon}",
-			activeIcon : "{activeIcon}",
+			//icon : "{icon}",
+			//activeIcon : "{activeIcon}",
 			text : "{text}",
 			sender : "{sender}",
-			showIcon : "{showIcon}",
-			senderActive: "{senderActive}",
+			//showIcon : "{showIcon}",
+			//senderActive: "{senderActive}",
 			iconActive: "{iconActive}",
 			info: "{info}",
 			timestamp : "{timestamp}",
-			senderPress : fnOpenPopup,
-			iconPress : fnOpenPopup,
+			//senderPress : fnOpenPopup,
+			//iconPress : fnOpenPopup,
 		});
 		
 		function bindFeedListData(data, itemTemplate, list)
@@ -157,101 +40,58 @@
 		jQuery.sap.require("sap.ui.core.IconPool");
 		var sURI = sap.ui.core.IconPool.getIconURI("personnel-view");
 		
-		
+		var url = "http://www.maalaimalar.com/RSS/SectionRssFeed.aspx?Id=1&Main=18";
+		var urlFeed = url;
 		
 		var feedData = {
-				chunks : [ {
-					icon: "images/male.jpg",
-					text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus nulla, interdum eget posuere non, tincidunt eu felis. In hac habitasse platea dictumst. This is a very long URL: http://vesapui5.dhcp.wdf.sap.corp:1080/trac/sapui5.consumption/wiki/SprintPlanning/Kelley/CustomStuffAfterECC#StillEmptySpaceinObjectListItemsandObjectHeaders/vesapui5.dhcp.wdf.sap.corp:1080/trac/sapui5.consumption/wiki/SprintPlanning/Kelley/CustomStuffAfterECC#StillEmptySpaceinObjectListItemsandObjectHeaders/vesapui5.dhcp.wdf.sap.corp:1080/trac/sapui5.consumption/wiki/SprintPlanning/Kelley/CustomStuffAfterECC#StillEmptySpaceinObjectListItemsandObjectHeadersQuisque ut ipsum est.",
-					sender: "Jeremy Dash",
-					senderActive: true,
-					iconActive: true,
-					timestamp: "March 03, 2013",
-					info: "Approved",
-				}, {
-					icon: sURI,
-					text: "This FeedListItem displays an ImagePool image. Cras congue posuere metus sed tempus. Mauris euismod, dui sit amet molestie volutpat, ipsum est viverra velit, id ultricies ante dolor et ligula. ",
-					sender: "Christopher Kent",
-					senderActive: true,
-					iconActive: true,
-					timestamp: "Dec 04, 2012",
-					info: "Rejected",
-				}, {
-					icon: "images/female.jpg",
-					text: "This FeedListItem comes with senderActive = false and iconActive = false. In hac habitasse platea dictumst. Quisque ut ipsum est. Duis ipsum orci, interdum eget sollicitudin ac, blandit a ante.",
-					sender: "Claire Jones",
-					senderActive: false,
-					iconActive: false,
-					timestamp: "Dec 02, 2012",
-					info: "Waiting for Approval",
-				}, {
-					text: "This FeedListItem comes without an image and has a very long info text",
-					sender: "Christine Noah",
-					senderActive: true,
-					iconActive: true,
-					timestamp: "Nov 23, 2012",
-					info: "Waiting for Approval and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting and waiting",
-				}, {
-					text: "This one has no date",
-					sender: "Frank Black",
-					senderActive: true,
-					iconActive: true,
-					info: "New",
-				}, {
-					text: "This one shows the default image",
-					sender: "Frank Black",
-				}, {
-					text: "And this one does without info",
-					sender: "Kurt Nistroy",
-					senderActive: true,
-					iconActive: true,
-					timestamp: "Nov 01, 2012",
-				}, {
-					text: "OPEN (No decision yet)",
-					sender: "Kurt Nistroy",
-					senderActive: true,
-					iconActive: true,
-				}, {
-					text: "This one has no timestamp and no icon",
-					info: "Approved",
-					sender: "Kurt Nistroy",
-					showIcon: false,
-				}, {
-					text: "This one has no sender and no icon",
-					info: "Approved",
-					timestamp: "Nov 01, 2012",
-					showIcon: false,
-				}, {
-					text: "This one has a timestamp starting with a number",
-					info: "Approved",
-					timestamp: "1.12.2012",
-					showIcon: false,
-				}, {
-					text: "This one has no sender but active/inactve icons (check out the icon's color, when you press this item)",
-					icon: "images/action.png",
-					activeIcon: "images/action_pressed.png",
-					senderActive: true,
-					iconActive: true,
-					timestamp: "Nov 01, 2012",
-				}, {
-					sender: "Frank Black",
-					text: "This FeedListItem has an image but showIcon is set to false so it should not be displayed",
-					icon: "images/action.png",
-					showIcon: false,
-					senderActive: true,
-					iconActive: true,
-					timestamp: "Nov 01, 2012",
-				}, {
-					icon: "images/male.jpg",
-					text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus nulla, interdum eget posuere non, tincidunt eu felis. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus nulla, interdum eget posuere non, tincidunt eu felis. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus nulla, interdum eget posuere non, tincidunt eu felis. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus nulla, interdum eget posuere non, tincidunt eu felis. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus nulla, interdum eget posuere non, tincidunt eu felis. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus nulla, interdum eget posuere non, tincidunt eu felis. In hac habitasse platea dictumst. This is a very long URL: http://vesapui5.dhcp.wdf.sap.corp:1080/trac/sapui5.consumption/wiki/SprintPlanning/Kelley/CustomStuffAfterECC#StillEmptySpaceinObjectListItemsandObjectHeaders/vesapui5.dhcp.wdf.sap.corp:1080/trac/sapui5.consumption/wiki/SprintPlanning/Kelley/CustomStuffAfterECC#StillEmptySpaceinObjectListItemsandObjectHeaders/vesapui5.dhcp.wdf.sap.corp:1080/trac/sapui5.consumption/wiki/SprintPlanning/Kelley/CustomStuffAfterECC#StillEmptySpaceinObjectListItemsandObjectHeadersQuisque ut ipsum est.",
-					sender: "Jeremy has a really long long long middle-name Dash",
-					senderActive: true,
-					iconActive: true,
-					timestamp: "March 03, 2013 March 03, 2013 March 03, 2013 March 03, 2013 March 03, 2013 March 03, 2013 March 03, 2013 March 03, 2013 March 03, 2013",
-					info: "Approved Approved Approved Approved Approved Approved Approved Approved Approved Approved Approved Approved Approved Approved ",
-				}]
+				chunks : []
 			};
 		
+		$.jGFeed(urlFeed, function(feeds) {
+			
+			if (!feeds.entries.length) {
+				// there was an error
+				jQuery.sap.require("sap.m.MessageToast");
+				sap.m.MessageToast.show("No Data Found!");
+			}		
+			
+			else {
+				alert("Length:" +feeds.entries.length);
+				for ( var i = 0; i < feeds.entries.length; i++) {
+					var entry = feeds.entries[i];
+					
+
+					var feedArray = {};
+
+					var date = new Date(entry.publishedDate);
+
+					var months = Array("January", "February", "March", "April",
+							"May", "June", "July", "August", "September",
+							"October", "November", "December");
+					var string = date.getDate() + " " + months[date.getMonth()]
+							+ " " + date.getFullYear();
+
+					feedArray.timestamp = string;
+					feedArray.sender = entry.title;
+					feedArray.text = entry.contentSnippet;
+					feedArray.info = entry.author;
+					feedArray.iconActive = entry.link;
+					
+					var fName = entry.author.substr(0, entry.author
+							.indexOf(' '));
+					var lName = entry.author
+							.substr(entry.author.indexOf(' ') + 1);
+					var fullName = fName.toLowerCase() + "."
+							+ lName.toLowerCase();
+                    
+				feedData.chunks.push( feedArray
+					);			
+					
+				}
+			}
+		}
+		);
+			
 		bindFeedListData(feedData, oFeedListItemTemplate, oFeedList);
 		
 		var appFeedList = new sap.m.App("myApp", {initialPage:"feedListPage"});
