@@ -263,7 +263,7 @@
 		
 		feedListPage.addContent(oFeedList);
 		appFeedList.addPage(feedListPage);
-		appFeedList.placeAt("body");
+		appFeedList.placeAt("content");
 		
 		
 
