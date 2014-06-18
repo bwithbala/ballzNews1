@@ -1,23 +1,25 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m,sap.ui.commons"
-				data-sap-ui-theme="sap_bluecrystal">
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m,sap.ui.commons"
+	data-sap-ui-theme="sap_bluecrystal">
 		</script>
-		
-		
+
+
 <script type="text/javascript" charset="utf-8">
     var mobile = false;
     if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+    	alert("Inside Mobile Device");
         document.addEventListener("deviceready", function(){mobile = true; onDeviceReady();}, false);
     } else {
+    	alert("Inside Desktop");
         $(document).ready(onDeviceReady);   
     }
     function onDeviceReady() {
+    	alert("Inside Device Ready");
        
         var busyDialog2 = (busyDialog2) ? busyDialog2 : 
         	new sap.m.BusyDialog('busy2',{text:'Fetching News for You!!!', title: 'Fetching News....'});
@@ -36,17 +38,13 @@
         },2000);        
 
     };
-</script>		
-		
-		
-        <script src="js/jgfeed.js"></script>
-        <script src="js/tile.js"></script>
-		
-		
-		
-   
-	</head>
-	<body class="sapUiBody"  role="application">
-		<div id="content"></div>
-	</body>
+</script>
+
+<script src="js/jgfeed.js"></script>
+<script src="js/tile.js"></script>
+
+</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
 </html>
