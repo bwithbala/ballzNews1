@@ -65,14 +65,14 @@ var oFeedList = new sap.m.List("oFeedItemList", {
 //showSeparators: "None",
 });
 
-/*var fnOpenPopup = function(oControlEvent) {
+var fnOpenPopup = function(oControlEvent) {
 	//oPopover.openBy(oControlEvent.getParameters().domRef);
 	var info = +oControlEvent.getParameters().getInfo() ;
 	alert("DomRef:" +oControlEvent.getParameters().getInfo());
 	var str = "'";
 	var link = str.concat(oEvent.oSource.getinfo()); 
 	sap.m.URLHelper.redirect(link);
-};*/
+};
 
 /*function handlePress(oEvent) {
 	var str = "'";
@@ -92,8 +92,8 @@ var oFeedListItemTemplate = new sap.m.FeedListItem({
 	//senderActive: "{senderActive}",
 	//iconActive : "{iconActive}",
 	info : "{info}",
-	timestamp : "{timestamp}"
-//senderPress : fnOpenPopup,
+	timestamp : "{timestamp}",
+senderPress : fnOpenPopup,
 //iconPress : fnOpenPopup,
 //press : handlePress
 //	detailPress:fnOpenPopup

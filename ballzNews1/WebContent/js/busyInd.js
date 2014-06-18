@@ -20,7 +20,7 @@
         //document.addEventListener("deviceready", function(){mobile = true; onDeviceReady();}, false);
      //   document.addEventListener("deviceready", onDeviceReady, false);
     } else {
-        $(document).ready(onDeviceReady);   
+      //  $(document).ready(onDeviceReady);   
     }
     function onDeviceReady() {
      
