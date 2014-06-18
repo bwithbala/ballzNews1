@@ -11,7 +11,6 @@
 <script type="text/javascript" charset="utf-8">
     var mobile = false;
     if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
-    	alert("Inside Mobile Device");
     	
  	        var busyDialog2 = (busyDialog2) ? busyDialog2 : 
 	        	new sap.m.BusyDialog('busy2',{text:'Fetching News for You!!!', title: 'Fetching News....'});
@@ -32,12 +31,10 @@
         //document.addEventListener("deviceready", function(){mobile = true; onDeviceReady();}, false);
      //   document.addEventListener("deviceready", onDeviceReady, false);
     } else {
-    	alert("Inside Desktop");
         $(document).ready(onDeviceReady);   
     }
     function onDeviceReady() {
-    	alert("Inside Device Ready");
-       
+     
         var busyDialog2 = (busyDialog2) ? busyDialog2 : 
         	new sap.m.BusyDialog('busy2',{text:'Fetching News for You!!!', title: 'Fetching News....'});
 
