@@ -7,7 +7,6 @@ var feedData = {
 function fillFeedListData(url) {
 
 	var urlFeed = url;
-	//alert("Inside fill feed List :" + urlFeed);
 
 	$.jGFeed(urlFeed, function(feeds) {
 
@@ -17,7 +16,6 @@ function fillFeedListData(url) {
 			sap.m.MessageToast.show("No Data Found!");
 		}
 		else {
-		//	alert("Length:" + feeds.entries.length);
 			for ( var i = 0; i < feeds.entries.length; i++) {
 				var entry = feeds.entries[i];
 
@@ -43,7 +41,6 @@ function fillFeedListData(url) {
 				var lName = entry.author.substr(entry.author.indexOf(' ') + 1);
 				var fullName = fName.toLowerCase() + "." + lName.toLowerCase();
 				feedData.chunks.push(feedArray);
-
 			}
 			
 			var oModel = new sap.ui.model.json.JSONModel();
@@ -51,7 +48,6 @@ function fillFeedListData(url) {
 			oModel.setData(feedData);
 			// set the model to the list
 			oFeedList.setModel(oModel);
-
 			// bind Aggregation
 			oFeedList.bindAggregation("items", "/chunks", oFeedListItemTemplate);			
 		}
