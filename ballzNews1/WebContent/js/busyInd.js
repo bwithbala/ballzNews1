@@ -17,7 +17,7 @@
 	        	busyDialog2.close();
 	        },3000);        	
    
-        //document.addEventListener("deviceready", function(){mobile = true; onDeviceReady();}, false);
+        document.addEventListener("deviceready", function(){mobile = true; onDeviceReady();}, false);
      //   document.addEventListener("deviceready", onDeviceReady, false);
     } else {
       //  $(document).ready(onDeviceReady);   
