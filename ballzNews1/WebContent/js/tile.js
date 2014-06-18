@@ -40,9 +40,10 @@ function fillFeedListData(url) {
 				feedArray.timestamp = string;
 				feedArray.sender = entry.title;
 				feedArray.text = entry.contentSnippet;
-				feedArray.info = entry.author;
+				feedArray.info = entry.link;
 			//	feedArray.iconActive = entry.link;
 				feedArray.showIcon = false;
+				//feedArray.press = handlePress;
 
 				var fName = entry.author.substr(0, entry.author.indexOf(' '));
 				var lName = entry.author.substr(entry.author.indexOf(' ') + 1);
@@ -72,8 +73,19 @@ var oFeedList = new sap.m.List("oFeedItemList", {
 });
 
 var fnOpenPopup = function(oControlEvent) {
-	oPopover.openBy(oControlEvent.getParameters().domRef);
+	//oPopover.openBy(oControlEvent.getParameters().domRef);
+	alert("DomRef:" +oControlEvent.getParameters().info);
+	var str = "'";
+	var link = str.concat(oEvent.oSource.getinfo()); 
+	sap.m.URLHelper.redirect(link);
+	
 };
+
+function handlePress(oEvent) {
+	var str = "'";
+	var link = str.concat(oEvent.oSource.getinfo()); 
+	sap.m.URLHelper.redirect(link);
+	}
 
 var oFeedListItemTemplate = new sap.m.FeedListItem({
 	type : sap.m.ListType.Active,
@@ -81,20 +93,19 @@ var oFeedListItemTemplate = new sap.m.FeedListItem({
 	//activeIcon : "{activeIcon}",
 	text : "{text}",
 	sender : "{sender}",
-	//showIcon : "{showIcon}",
+	showIcon : "{showIcon}",
 	//senderActive: "{senderActive}",
-	iconActive : "{iconActive}",
+	//iconActive : "{iconActive}",
 	info : "{info}",
 	timestamp : "{timestamp}",
-//senderPress : fnOpenPopup,
+senderPress : fnOpenPopup,
 //iconPress : fnOpenPopup,
+press : handlePress
 });
-
 
 
 jQuery.sap.require("sap.ui.core.IconPool");
 var sURI = sap.ui.core.IconPool.getIconURI("personnel-view");
-
 
 
 fillFeedListData(selectedNews) ;
@@ -106,6 +117,8 @@ var appFeedList = new sap.m.App("myApp", {
 var feedListPage = new sap.m.Page("feedListPage", {
 	title : "Feed List Item Test Page"
 });
+
+	
 
 feedListPage.addContent(oFeedList);
 appFeedList.addPage(feedListPage);
