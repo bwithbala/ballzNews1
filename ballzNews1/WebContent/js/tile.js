@@ -4,6 +4,24 @@ var feedData = {
 		chunks : []
 	};
 
+var busyDialog2 = (busyDialog2) ? busyDialog2 : 
+	new sap.m.BusyDialog('busy2',{text:'Fetching News for You!!!', title: 'Fetching News....'});
+
+
+setTimeout(function(){
+	busyCSSSize2.$().css('visibility', 'visible');
+},1000);
+
+var busyCSSSize2 = new sap.m.BusyIndicator({
+	size:'40px',
+});
+
+busyDialog2.open();
+setTimeout(function() {
+	busyDialog2.close();
+},2000);
+
+
 function fillFeedListData(url) {
 
 	var urlFeed = url;
@@ -51,13 +69,17 @@ function fillFeedListData(url) {
 			// bind Aggregation
 			oFeedList.bindAggregation("items", "/chunks", oFeedListItemTemplate);			
 		}
-	}, 30);
+		
+	},
+      
+	
+	30);
 }
 
 var oFeedList = new sap.m.List("oFeedItemList", {
 	mode : "SingleSelectMaster",
 	BackgroundDesign: sap.m.BackgroundDesign.Translucent,
-	Inset: true
+	
 //showSeparators: "None",
 });
 
@@ -342,15 +364,19 @@ var Bar = new sap.m.Bar({
 
 var appFeedList = new sap.m.App("myApp", {
 	initialPage : "feedListPage",
-	BackgroundColor: "green",
+	//BackgroundColor: "green",
 });
 
 var feedListPage = new sap.m.Page("feedListPage", {
-	title : "Ballz News"
+	title : "Ballz News",
+	BackgroundDesign: sap.m.BackgroundDesign.Translucent
 });
 
 feedListPage.setCustomHeader(Bar); 
-
+//feedListPage.addContent(busyCSSSize2);
 feedListPage.addContent(oFeedList);
+
+
+
 appFeedList.addPage(feedListPage);
 appFeedList.placeAt("content");
