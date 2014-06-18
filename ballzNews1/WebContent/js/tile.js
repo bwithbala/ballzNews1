@@ -56,6 +56,8 @@ function fillFeedListData(url) {
 
 var oFeedList = new sap.m.List("oFeedItemList", {
 	mode : "SingleSelectMaster",
+	BackgroundDesign: sap.m.BackgroundDesign.Translucent,
+	Inset: true
 //showSeparators: "None",
 });
 
@@ -339,7 +341,8 @@ var Bar = new sap.m.Bar({
 });
 
 var appFeedList = new sap.m.App("myApp", {
-	initialPage : "feedListPage"
+	initialPage : "feedListPage",
+	BackgroundColor: "green",
 });
 
 var feedListPage = new sap.m.Page("feedListPage", {
