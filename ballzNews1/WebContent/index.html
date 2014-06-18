@@ -12,23 +12,20 @@
 <script src="js/cordova.js"></script>
 
 <script>
-document.addEventListener("deviceready", function(e) {
-	alert("inside Device Ready");
+
+document.addEventListener("deviceready", function(){
+    
+    alert("inside Device Ready");
 	window.setTimeout(function() {
 		navigator.splashscreen.hide();
-	},5000);
-			
-}, "false");
+	},5000);    
+},true);
 
 </script>
 
 <script src="js/busyInd.js"></script>
 <script src="js/jgfeed.js"></script>
 <script src="js/tile.js"></script>
-
-
-
-
 
 </head>
 <body class="sapUiBody" role="application">
