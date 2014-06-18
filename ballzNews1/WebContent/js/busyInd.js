@@ -1,15 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m,sap.ui.commons"
-	data-sap-ui-theme="sap_bluecrystal">
-		</script>
-		
-<script type="text/javascript" charset="utf-8">
-/*     var mobile = false;
+    var mobile = false;
     if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
     	
  	        var busyDialog2 = (busyDialog2) ? busyDialog2 : 
@@ -51,14 +40,4 @@
         	busyDialog2.close();
         },3000);        
 
-    }; */
-</script>
-<script src="js/busyInd.js"></script>
-<script src="js/jgfeed.js"></script>
-<script src="js/tile.js"></script>
-
-</head>
-<body class="sapUiBody" role="application">
-	<div id="content"></div>
-</body>
-</html>
+    };
