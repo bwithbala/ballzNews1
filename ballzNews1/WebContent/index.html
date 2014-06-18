@@ -5,12 +5,17 @@
 
 		<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m"
+				data-sap-ui-libs="sap.m,sap.ui.commons"
 				data-sap-ui-theme="sap_bluecrystal">
 		</script>
         <script src="js/jgfeed.js"></script>
         <script src="js/tile.js"></script>
-        
+		
+		<style type="text/css">
+		  	.sapMFeedListItem {
+			  background-color: green;
+			}
+		</style>        
 	</head>
 	<body class="sapUiBody"  role="application">
 		<div id="content"></div>
