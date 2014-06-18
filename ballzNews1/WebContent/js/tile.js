@@ -4,7 +4,7 @@ var feedData = {
 		chunks : []
 	};
 
-var busyDialog2 = (busyDialog2) ? busyDialog2 : 
+/*var busyDialog2 = (busyDialog2) ? busyDialog2 : 
 	new sap.m.BusyDialog('busy2',{text:'Fetching News for You!!!', title: 'Fetching News....'});
 
 
@@ -19,7 +19,7 @@ var busyCSSSize2 = new sap.m.BusyIndicator({
 busyDialog2.open();
 setTimeout(function() {
 	busyDialog2.close();
-},2000);
+},2000);*/
 
 
 function fillFeedListData(url) {
