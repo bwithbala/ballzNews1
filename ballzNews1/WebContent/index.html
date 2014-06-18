@@ -4,24 +4,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-	    id="sap-ui-bootstrap" 
-	    data-sap-ui-libs="sap.m,sap.ui.commons"
-	    data-sap-ui-theme="sap_bluecrystal">
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m,sap.ui.commons"
+	data-sap-ui-theme="sap_bluecrystal">
 </script>
 
 <script src="js/cordova.js"></script>
 
-<script>
+<script type="text/javascript" charset="utf-8">
 
-document.addEventListener("deviceready", function(){
-    
-    alert("inside Device Ready");
+$(document).ready(function () {
+	alert("Doc Ready Triggered");
+     document.addEventListener("deviceready", onDeviceReady, true); 
+});
+
+function onDeviceReady() {
+	alert("Inside Device Ready");
 	window.setTimeout(function() {
 		navigator.splashscreen.hide();
 	},5000);    
-},true);
-
+}
 </script>
+
 
 <script src="js/busyInd.js"></script>
 <script src="js/jgfeed.js"></script>
