@@ -1,5 +1,28 @@
+.sapMBarLeft{
+	background-color: green;
+}
 
-		  /* 	.sapMFeedListItem {
-			  background-color: green;
-			} */
-     
+.sapMBarRight{
+	background-color: red;
+}
+
+#oFeedItemList-listUl{
+	background-color: green;
+}
+
+.sapMFeedListItem {
+	background-color: grey;
+}
+
+.sapMFeedListItemTextText{
+	font-size:100%;
+	
+	color:red;
+	text-align:left;
+	text-overflow: ellipsis;
+
+}
+.sapMLnk.sapMLnkMaxWidth{
+	
+	
+}
