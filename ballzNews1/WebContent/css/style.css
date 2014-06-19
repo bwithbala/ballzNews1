@@ -15,7 +15,9 @@
 }
 
 
-.sapMFeedListItem .sapMFeedListItemTextText a, .sapMFeedListItem .sapMFeedListItemTextText span, .sapMFeedListItem .sapMFeedListItemTextName a {
+.sapMFeedListItem.sapMFeedListItemTextText a, 
+.sapMFeedListItem.sapMFeedListItemTextText span,
+.sapMFeedListItem.sapMFeedListItemTextName a {
 font-size: 0.2rem;
 color: #00679e;
 }
