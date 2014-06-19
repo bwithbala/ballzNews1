@@ -15,8 +15,8 @@
 }
  */
 
-sapMFeedListItemTextName.a {
-font-size: 0.2rem;
+.sapMFeedListItemTextName {
+font-size: 4.5rem;
 color: #00679e;
 word-wrap: break-word;
 }

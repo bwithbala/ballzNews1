@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link rel="stylesheet" href="css/style.css" type="text/css"/>
 
 <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
 	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m,sap.ui.commons"
@@ -11,45 +10,74 @@
 	
 </script>
 
-
-<!--<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>-->
-
-
 <script type="text/javascript" charset="utf-8">
-	/*  $(document).ready(function () {
-	 alert("Doc Ready Triggered");
-	 document.addEventListener("deviceready", onDeviceReady, true); 
-	 });
 
-	 function onDeviceReady() {
-	 alert("Inside Device Ready");
-	 window.setTimeout(function() {
-	 navigator.splashscreen.hide();
-	 },5000);    
-	 }  */
+var person = {
+	    name : "Balakrishnan",
+	    tel : "+17179794946",
+	    sms : "+1 7179794946",
+	    email : "balakrishnan.tharumar@gmail.com",
+	    website : "http://www.sap.com"
+	};
 
-	//Function called when page has finished loading.
-	/* function init() {
-	 document.addEventListener("deviceready", function() {
-	 deviceReady = true;
-	 console.log("Device="+device.platform+" "+device.version);
-	 alert("Device="+device.platform+" "+device.version);
-	 }, false);
-	 window.setTimeout(function() {
-	 if (!deviceReady) {
-	 alert("Error: Cordova did not initialize.  Demo will not run correctly.");
-	 }
-	 },3000);
-	 } */
+
+jQuery.sap.require("sap.ui.core.IconPool");
+
+var butTelePhone = new sap.m.Button({
+    text : person.tel,
+    icon : sap.ui.core.IconPool.getIconURI("iphone"),
+    tap : function() {
+        sap.m.URLHelper.triggerTel(person.tel);
+    }
+});
+
+var butEmail = new sap.m.Button({
+    text : person.email,
+    icon : sap.ui.core.IconPool.getIconURI("email"),
+    tap : function() {
+    	sap.m.URLHelper.triggerEmail(person.email, "Info", "Dear " + person.name + ",");
+    }
+});
+
+var butSms = new sap.m.Button({
+    text : person.sms,
+    icon : sap.ui.core.IconPool.getIconURI("phone"),
+    tap : function() {
+        sap.m.URLHelper.triggerTel(person.sms);
+    }
+});
+
+var butWebsite = new sap.m.Button({
+    text : person.Website,
+    icon : sap.ui.core.IconPool.getIconURI("customer"),
+    tap : function() {
+    	sap.m.URLHelper.redirect(person.website);
+    }
+});
+
+var appFeedList = new sap.m.App("myApp", {
+	initialPage : "feedListPage",
+	//BackgroundColor: "green",
+});
+
+var feedListPage = new sap.m.Page("feedListPage", {
+	title : "Ballz News",
+	BackgroundDesign: sap.m.BackgroundDesign.Translucent
+});
+
+
+feedListPage.addContent(butTelePhone);
+feedListPage.addContent(butEmail);
+feedListPage.addContent(butSms);
+feedListPage.addContent(butWebsite);
+
+appFeedList.addPage(feedListPage);
+appFeedList.placeAt("content");
+
 </script>
 
-
-<script src="js/busyInd.js"></script>
-<script src="js/jgfeed.js"></script>
-<script src="js/tile.js"></script>
-
 </head>
-<!----<body onLoad="init();" class="sapUiBody" role="application"> -->
+
 <body class="sapUiBody" role="application">
 	<div id="content"></div>
 </body>
