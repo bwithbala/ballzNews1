@@ -18,6 +18,6 @@
 .sapMFeedListItem.sapMFeedListItemTextName a {
 font-size: 0.5rem;
 color: #00679e;
-
+word-wrap: break-word;
 }
 
