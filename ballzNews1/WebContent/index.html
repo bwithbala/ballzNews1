@@ -43,7 +43,7 @@ var butSms = new sap.m.Button({
     text : person.sms,
     icon : sap.ui.core.IconPool.getIconURI("phone"),
     tap : function() {
-        sap.m.URLHelper.triggerTel(person.sms);
+        sap.m.URLHelper.triggerSms(person.sms);
     }
 });
 
