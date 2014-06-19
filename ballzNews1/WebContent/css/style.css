@@ -14,19 +14,8 @@
 	background-color: grey;
 }
 
-.sapMFeedListItemTextText{
-	font-size:50%;
-	
-	color:red;
-	text-align:left;
-	text-overflow: ellipsis;
 
-}
-.sapMLnk.sapMLnkMaxWidth{
-	
-		font-size:50%;
-	
-	color:red;
-	text-align:left;
-	text-overflow: ellipsis;
+.sapMFeedListItem .sapMFeedListItemTextText a, .sapMFeedListItem .sapMFeedListItemTextText span, .sapMFeedListItem .sapMFeedListItemTextName a {
+font-size: 0.2;
+color: #00679e;
 }
