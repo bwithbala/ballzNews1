@@ -7,12 +7,12 @@
 	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m,sap.ui.commons"
 	data-sap-ui-theme="sap_bluecrystal">
 </script>
-
+   <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
 
 
 <script type="text/javascript" charset="utf-8">
 
- $(document).ready(function () {
+/*  $(document).ready(function () {
 	alert("Doc Ready Triggered");
      document.addEventListener("deviceready", onDeviceReady, true); 
 });
@@ -22,7 +22,22 @@ function onDeviceReady() {
 	window.setTimeout(function() {
 		navigator.splashscreen.hide();
 	},5000);    
-} 
+}  */
+
+* Function called when page has finished loading.
+*/
+function init() {
+document.addEventListener("deviceready", function() {
+deviceReady = true;
+console.log("Device="+device.platform+" "+device.version);
+alert("Device="+device.platform+" "+device.version);
+}, false);
+window.setTimeout(function() {
+if (!deviceReady) {
+alert("Error: Cordova did not initialize.  Demo will not run correctly.");
+}
+},3000);
+}
 </script>
 
 
@@ -31,7 +46,7 @@ function onDeviceReady() {
 <script src="js/tile.js"></script>
 
 </head>
-<body class="sapUiBody" role="application">
+<body onLoad="init();" class="sapUiBody" role="application">
 	<div id="content"></div>
 </body>
 </html>
